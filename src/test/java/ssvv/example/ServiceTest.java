@@ -1,15 +1,11 @@
 package ssvv.example;
 
-import domain.Student;
+import ssvv.example.domain.Student;
 import org.junit.jupiter.api.*;
-import repository.NotaXMLRepo;
-import repository.StudentXMLRepo;
-import repository.TemaXMLRepo;
-import service.Service;
-import validation.NotaValidator;
-import validation.StudentValidator;
-import validation.TemaValidator;
-import validation.ValidationException;
+import ssvv.example.repository.StudentXMLRepo;
+import ssvv.example.service.Service;
+import ssvv.example.validation.StudentValidator;
+import ssvv.example.validation.ValidationException;
 
 import java.io.BufferedWriter;
 import java.io.File;
