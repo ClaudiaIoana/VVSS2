@@ -1,10 +1,11 @@
-package service;
+package ssvv.example;
 
 import domain.Student;
 import org.junit.jupiter.api.*;
 import repository.NotaXMLRepo;
 import repository.StudentXMLRepo;
 import repository.TemaXMLRepo;
+import service.Service;
 import validation.NotaValidator;
 import validation.StudentValidator;
 import validation.TemaValidator;
