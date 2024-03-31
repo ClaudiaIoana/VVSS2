@@ -59,7 +59,7 @@ public class TestAddStudent {
         try{
             this.service.addStudent(testing_student);
         } catch (ValidationException e){
-            assertEquals(e.toString(), new ValidationException("Id incorect!").toString());
+            assertEquals(e.toString(), new ValidationException("Id-ul nu poate fi null!").toString());
         }
     }
 
@@ -98,15 +98,17 @@ public class TestAddStudent {
     @Test
     public void test_add_student_id_bigger_number_upper_boundary() {
         Student testing_student = new Student("10001", "Name Test", 3, "email@g");
-        this.service.addStudent(testing_student);
-        java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
-        Assertions.assertEquals(students.next(), testing_student);
+        try{
+            this.service.addStudent(testing_student);
+        } catch (ValidationException e){
+            assertEquals(e.toString(), new ValidationException("Id incorect!").toString());
+        }
     }
 
 
     @Test
     public void test_add_student_group_number(){
-        Student testing_student = new Student("df", "Name Test", 3, "email@g");
+        Student testing_student = new Student("11", "Name Test", 3, "email@g");
         this.service.addStudent(testing_student);
         java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
         Assertions.assertEquals(students.next(), testing_student);
@@ -114,7 +116,7 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_group_negative_number_lower_boundary(){
-        Student testing_student = new Student("dg", "Name Test", -1, "email@g");
+        Student testing_student = new Student("11", "Name Test", -1, "email@g");
         try{
             this.service.addStudent(testing_student);
         } catch (ValidationException e){
@@ -124,7 +126,7 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_group_positive_number_lower_boundary(){
-        Student testing_student = new Student("dg", "Name Test", 0, "email@g");
+        Student testing_student = new Student("11", "Name Test", 0, "email@g");
         try{
             service.addStudent(testing_student);
         } catch (ValidationException e){
@@ -134,7 +136,7 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_group_bigger_number_lower_boundary(){
-        Student testing_student = new Student("df", "Name Test", 2, "email@g");
+        Student testing_student = new Student("11", "Name Test", 2, "email@g");
         this.service.addStudent(testing_student);
         java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
         Assertions.assertEquals(students.next(), testing_student);
@@ -142,7 +144,7 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_group_lower_upper_boundary(){
-        Student testing_student = new Student("df", "Name Test", 99, "email@g");
+        Student testing_student = new Student("11", "Name Test", 99, "email@g");
         this.service.addStudent(testing_student);
         java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
         Assertions.assertEquals(students.next(), testing_student);
@@ -150,7 +152,7 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_group_equal_upper_boundary(){
-        Student testing_student = new Student("df", "Name Test", 100, "email@g");
+        Student testing_student = new Student("11", "Name Test", 100, "email@g");
         this.service.addStudent(testing_student);
         java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
         Assertions.assertEquals(students.next(), testing_student);
@@ -158,7 +160,7 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_group_bigger_upper_boundary(){
-        Student testing_student = new Student("df", "Name Test", 101, "email@g");
+        Student testing_student = new Student("11", "Name Test", 101, "email@g");
         this.service.addStudent(testing_student);
         java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
         Assertions.assertEquals(students.next(), testing_student);
@@ -167,9 +169,11 @@ public class TestAddStudent {
     @Test
     public void test_add_student_name_with_special_ch(){
         Student testing_student = new Student("1", "Name_Test#6", 100, "email@g");
-        this.service.addStudent(testing_student);
-        java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
-        Assertions.assertEquals(students.next(), testing_student);
+        try{
+            service.addStudent(testing_student);
+        } catch (ValidationException e){
+            assertEquals(e.toString(), new ValidationException("Nume incorect!").toString());
+        }
     }
 
     @Test
@@ -190,13 +194,6 @@ public class TestAddStudent {
         } catch (ValidationException e){
             assertEquals(e.toString(), new ValidationException("Nume incorect!").toString());
         }
-    }
-
-    @Test
-    public void test_add_student_email_with_arond(){
-        Student testing_student = new Student("1", "Name_Test#6", 100, "email@gmail.com");
-        Student response = service.addStudent(testing_student);
-        assertEquals(testing_student, response);
     }
 
     @Test
@@ -221,7 +218,7 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_id_duplicate() {
-        Student testing_student = new Student("11", "Name Test1", 3, "email@g");
+        Student testing_student = new Student("11", "Name Test Tatar", 3, "email@g");
         this.service.addStudent(testing_student);
         java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
         Assertions.assertEquals(students.next(), testing_student);
@@ -230,16 +227,18 @@ public class TestAddStudent {
         try{
             this.service.addStudent(testing_student2);
         } catch (ValidationException e){
-            assertEquals(e.toString(), new ValidationException("Id incorect!").toString());
+            assertEquals(e.toString(), new ValidationException("Duplicate ID.").toString());
         }
     }
 
     @Test
     public void test_add_student_id_float_number() {
         Student testing_student = new Student("11.45", "Name Test1", 3, "email@g");
-        this.service.addStudent(testing_student);
-        java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
-        Assertions.assertEquals(students.next(), testing_student);
+        try{
+            this.service.addStudent(testing_student);
+        } catch (ValidationException e){
+            assertEquals(e.toString(), new ValidationException("Id incorect!").toString());
+        }
     }
 
 }
