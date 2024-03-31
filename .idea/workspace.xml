@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bb5c8a-fe42-4b02-919a-eaa091b8fc1a" name="Changes" comment="try3" />
+    <list default="true" id="74bb5c8a-fe42-4b02-919a-eaa091b8fc1a" name="Changes" comment="try1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,19 +41,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/1 My work/3/2 SEM/vvss/try3/src/main/java&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/1 My work/3/2 SEM/vvss/try3",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.build"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\1 My work\3\2 SEM\vvss\try3\src\main\java" />
@@ -166,6 +166,7 @@
       <workItem from="1711892454537" duration="4235000" />
       <workItem from="1711912390449" duration="5273000" />
       <workItem from="1711917942723" duration="263000" />
+      <workItem from="1711919506729" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="try2">
       <created>1711909187126</created>
@@ -209,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711917742522</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="try1">
+      <created>1711919813248</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711919813248</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +237,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="try2" />
     <MESSAGE value="try3" />
-    <option name="LAST_COMMIT_MESSAGE" value="try3" />
+    <MESSAGE value="try1" />
+    <option name="LAST_COMMIT_MESSAGE" value="try1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

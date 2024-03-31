@@ -1,0 +1,92 @@
+-------------------------------------------------------------------------------
+Test set: com.ssvv.TestAddStudent
+-------------------------------------------------------------------------------
+Tests run: 22, Failures: 22, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec <<< FAILURE!
+com.ssvv.TestAddStudent.test_add_student_group_bigger_number_lower_boundary()  Time elapsed: 0.006 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_group_bigger_number_lower_boundary(TestAddStudent.java:138)
+
+com.ssvv.TestAddStudent.test_add_student_group_negative_number_lower_boundary()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_group_negative_number_lower_boundary(TestAddStudent.java:119)
+
+com.ssvv.TestAddStudent.test_add_student_group_positive_number_lower_boundary()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_group_positive_number_lower_boundary(TestAddStudent.java:129)
+
+com.ssvv.TestAddStudent.test_add_student_group_lower_upper_boundary()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_group_lower_upper_boundary(TestAddStudent.java:146)
+
+com.ssvv.TestAddStudent.test_add_student_id_empty_string_lower_boundery()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_empty_string_lower_boundery(TestAddStudent.java:60)
+
+com.ssvv.TestAddStudent.test_add_student_name_with_empty_string()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_name_with_empty_string(TestAddStudent.java:179)
+
+com.ssvv.TestAddStudent.test_add_student_group_bigger_upper_boundary()  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_group_bigger_upper_boundary(TestAddStudent.java:162)
+
+com.ssvv.TestAddStudent.test_add_student_id_bigger_number_lower_boundary()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_bigger_number_lower_boundary(TestAddStudent.java:77)
+
+com.ssvv.TestAddStudent.test_add_student_id_big_number_upper_boundary()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_big_number_upper_boundary(TestAddStudent.java:93)
+
+com.ssvv.TestAddStudent.test_add_student_name_with_special_ch()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_name_with_special_ch(TestAddStudent.java:170)
+
+com.ssvv.TestAddStudent.test_add_student_id_smaller_number_upper_boundary()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_smaller_number_upper_boundary(TestAddStudent.java:85)
+
+com.ssvv.TestAddStudent.test_add_student_id_small_number_lower_boundary()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_small_number_lower_boundary(TestAddStudent.java:69)
+
+com.ssvv.TestAddStudent.test_add_student_group_equal_upper_boundary()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_group_equal_upper_boundary(TestAddStudent.java:154)
+
+com.ssvv.TestAddStudent.test_add_student_email_with_empty_string()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_email_with_empty_string(TestAddStudent.java:206)
+
+com.ssvv.TestAddStudent.test_add_student_id_bigger_number_upper_boundary()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_bigger_number_upper_boundary(TestAddStudent.java:101)
+
+com.ssvv.TestAddStudent.test_add_student_email_with_null()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_email_with_null(TestAddStudent.java:216)
+
+com.ssvv.TestAddStudent.test_add_student_id_float_number()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_float_number(TestAddStudent.java:240)
+
+com.ssvv.TestAddStudent.test_add_student_group_number()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_group_number(TestAddStudent.java:110)
+
+com.ssvv.TestAddStudent.test_add_student_id_not_null()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_not_null(TestAddStudent.java:51)
+
+com.ssvv.TestAddStudent.test_add_student_id_duplicate()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_id_duplicate(TestAddStudent.java:225)
+
+com.ssvv.TestAddStudent.test_add_student_name_with_null()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_name_with_null(TestAddStudent.java:189)
+
+com.ssvv.TestAddStudent.test_add_student_email_with_arond()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.ssvv.service.Service.addStudent(com.ssvv.domain.Student)" because "this.service" is null
+	at com.ssvv.TestAddStudent.test_add_student_email_with_arond(TestAddStudent.java:198)
+
