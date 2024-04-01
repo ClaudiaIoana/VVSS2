@@ -18,8 +18,8 @@ public class TestAddStudent {
     private StudentValidator studentValidator;
     private Service service;
 
-    @BeforeAll
-    static void createXML() {
+    @BeforeEach
+    void createXML() {
         File xml = new File("fisiere/test_Studenti.xml");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(xml))) {
             writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" +
@@ -152,7 +152,7 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_group_equal_upper_boundary(){
-        Student testing_student = new Student("16", "Name Test", 100, "email@g");
+        Student testing_student = new Student("16", "Name Test", 10000, "email@g");
         this.service.addStudent(testing_student);
         java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
         Assertions.assertEquals(students.next(), testing_student);
@@ -160,10 +160,12 @@ public class TestAddStudent {
 
     @Test
     public void test_add_student_group_bigger_upper_boundary(){
-        Student testing_student = new Student("17", "Name Test", 101, "email@g");
-        this.service.addStudent(testing_student);
-        java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
-        Assertions.assertEquals(students.next(), testing_student);
+        Student testing_student = new Student("17", "Name Test", 10001, "email@g");
+        try{
+            this.service.addStudent(testing_student);
+        } catch (ValidationException e){
+            assertEquals(e.toString(), new ValidationException("Grupa incorecta!").toString());
+        }
     }
 
     @Test
@@ -222,7 +224,7 @@ public class TestAddStudent {
         this.service.addStudent(testing_student);
         java.util.Iterator<Student> students = this.service.getAllStudenti().iterator();
         Assertions.assertEquals(students.next(), testing_student);
-        Student testing_student2 = new Student("11", "Name Test", 3, "email@g");
+        Student testing_student2 = new Student("23", "Name Test", 3, "email@g");
 
         try{
             this.service.addStudent(testing_student2);
@@ -250,6 +252,5 @@ public class TestAddStudent {
             assertEquals(e.toString(), new ValidationException("Email incorect!").toString());
         }
     }
-
 
 }
