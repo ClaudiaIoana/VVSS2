@@ -18,8 +18,8 @@ public class TestAddStudent {
     private StudentValidator studentValidator;
     private Service service;
 
-    @BeforeAll
-    static void createXML() {
+    @BeforeEach
+    void createXML() {
         File xml = new File("fisiere/test_Studenti.xml");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(xml))) {
             writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" +
