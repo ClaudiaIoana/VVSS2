@@ -5,6 +5,7 @@ import com.ssvv.repository.TemaXMLRepo;
 import com.ssvv.service.Service;
 import com.ssvv.validation.TemaValidator;
 import com.ssvv.validation.ValidationException;
+import junit.framework.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +26,7 @@ public class TestAddTema {
 
     @BeforeAll
     static void createXML() {
-        File xml = new File("fisiere/temeTest.xml");
+        File xml = new File("fisiere/teme_test.xml");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(xml))) {
             writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" +
                     "<inbox>\n" +
@@ -40,97 +41,125 @@ public class TestAddTema {
 
     @BeforeEach
     void setUp() {
-        this.temaFileRepository = new TemaXMLRepo("fisiere/temeTest.xml");
+        this.temaFileRepository = new TemaXMLRepo("fisiere/teme_test.xml");
         this.temaValidator = new TemaValidator();
         this.service = new Service(null, null, this.temaFileRepository, this.temaValidator, null, null);
     }
 
     @AfterEach
     void tearDown() {
-        new File("fisiere/temeTest.xml").delete();
+        new File("fisiere/teme_test.xml").delete();
     }
 
     @Test
-    void testAddTemaEmptyId() {
-        Tema newTema1 = new Tema("1", "desc", 10, 9);
-        Tema newTema2 = new Tema("", "desc", 10, 9);
-        this.service.addTema(newTema1);
+    void test_add_tema_with_empty_id() {
+        Tema testing_tema = new Tema("1", "desc", 10, 9);
+        Tema testing_tema2 = new Tema("", "desc", 10, 9);
+        this.service.addTema(testing_tema);
         java.util.Iterator<Tema> students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema1);
-        assertThrows(ValidationException.class, () -> this.service.addTema(newTema2));
+        assertEquals(students.next(), testing_tema);
+        try{
+            this.service.addTema(testing_tema2);
+        } catch (ValidationException e){
+            Assert.assertEquals(e.toString(), new ValidationException("Numar tema invalid!").toString());
+        }
     }
 
     @Test
-    void testAddTemaNullId() {
-        Tema newTema1 = new Tema("1", "desc", 10, 9);
-        Tema newTema2 = new Tema(new String(), "desc", 10, 9);
-        this.service.addTema(newTema1);
+    void test_add_tema_with_null_id() {
+        Tema testing_tema = new Tema("1", "desc", 10, 9);
+        Tema testing_tema2 = new Tema(new String(), "desc", 10, 9);
+        this.service.addTema(testing_tema);
         java.util.Iterator<Tema> students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema1);
-        assertThrows(ValidationException.class, () -> this.service.addTema(newTema2));
+        assertEquals(students.next(), testing_tema);
+        try{
+            this.service.addTema(testing_tema2);
+        } catch (ValidationException e){
+            Assert.assertEquals(e.toString(), new ValidationException("Numar tema invalid!").toString());
+        }
     }
 
     @Test
-    void testAddTemaNullDesc() {
-        Tema newTema1 = new Tema("1", "desc", 10, 9);
-        Tema newTema2 = new Tema("2", "", 10, 9);
-        this.service.addTema(newTema1);
+    void test_add_tema_with_null_desc() {
+        Tema testing_tema = new Tema("1", "desc", 10, 9);
+        Tema testing_tema2 = new Tema("2", "", 10, 9);
+        this.service.addTema(testing_tema);
         java.util.Iterator<Tema> students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema1);
-        assertThrows(ValidationException.class, () -> this.service.addTema(newTema2));
+        assertEquals(students.next(), testing_tema);
+        try{
+            this.service.addTema(testing_tema2);
+        } catch (ValidationException e){
+            Assert.assertEquals(e.toString(), new ValidationException("Descriere invalida!").toString());
+        }
     }
 
     @Test
-    void testAddTemaDeadlineOverLimit() {
-        Tema newTema1 = new Tema("1", "desc", 10, 9);
-        Tema newTema2 = new Tema("2", "desc", 15, 9);
-        this.service.addTema(newTema1);
+    void test_add_tema_with_deadlin_over_limit() {
+        Tema testing_tema = new Tema("1", "desc", 10, 9);
+        Tema testing_tema2 = new Tema("2", "desc", 15, 9);
+        this.service.addTema(testing_tema);
         java.util.Iterator<Tema> students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema1);
-        assertThrows(ValidationException.class, () -> this.service.addTema(newTema2));
+        assertEquals(students.next(), testing_tema);
+        try{
+            this.service.addTema(testing_tema2);
+        } catch (ValidationException e){
+            Assert.assertEquals(e.toString(), new ValidationException("Deadlineul trebuie sa fie intre 1-14.").toString());
+        }
     }
 
     @Test
-    void testAddTemaDeadlineUnderLimit() {
-        Tema newTema1 = new Tema("1", "desc", 10, 9);
-        Tema newTema2 = new Tema("2", "desc", 0, 9);
-        this.service.addTema(newTema1);
+    void test_add_tema_deadline_under_limit() {
+        Tema testing_tema = new Tema("1", "desc", 10, 9);
+        Tema testing_tema2 = new Tema("2", "desc", 0, 9);
+        this.service.addTema(testing_tema);
         java.util.Iterator<Tema> students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema1);
-        assertThrows(ValidationException.class, () -> this.service.addTema(newTema2));
+        assertEquals(students.next(), testing_tema);
+        try{
+            this.service.addTema(testing_tema2);
+        } catch (ValidationException e){
+            Assert.assertEquals(e.toString(), new ValidationException("Deadlineul trebuie sa fie intre 1-14.").toString());
+        }
     }
 
     @Test
-    void testAddTemaPrimireOverLimit() {
-        Tema newTema1 = new Tema("1", "desc", 10, 9);
-        Tema newTema2 = new Tema("2", "desc", 10, 15);
-        this.service.addTema(newTema1);
+    void test_add_tema_with_primire_over_limit() {
+        Tema testing_tema = new Tema("1", "desc", 10, 9);
+        Tema testing_tema2 = new Tema("2", "desc", 10, 15);
+        this.service.addTema(testing_tema);
         java.util.Iterator<Tema> students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema1);
-        assertThrows(ValidationException.class, () -> this.service.addTema(newTema2));
+        assertEquals(students.next(), testing_tema);
+        try{
+            this.service.addTema(testing_tema2);
+        } catch (ValidationException e){
+            Assert.assertEquals(e.toString(), new ValidationException("Saptamana primirii trebuie sa fie intre 1-14.").toString());
+        }
     }
 
     @Test
-    void testAddTemaPrimireUnderLimit() {
-        Tema newTema1 = new Tema("1", "desc", 10, 9);
-        Tema newTema2 = new Tema("2", "desc", 10, 0);
-        this.service.addTema(newTema1);
+    void test_add_tema_with_primire_under_limit() {
+        Tema testing_tema = new Tema("1", "desc", 10, 9);
+        Tema testing_tema2 = new Tema("2", "desc", 10, 0);
+        this.service.addTema(testing_tema);
         java.util.Iterator<Tema> students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema1);
-        assertThrows(ValidationException.class, () -> this.service.addTema(newTema2));
+        assertEquals(students.next(), testing_tema);
+        try{
+            this.service.addTema(testing_tema2);
+        } catch (ValidationException e){
+            Assert.assertEquals(e.toString(), new ValidationException("Saptamana primirii trebuie sa fie intre 1-14.").toString());
+        }
     }
 
     @Test
-    void testAddTemaAllGood() {
-        Tema newTema1 = new Tema("1", "desc", 10, 9);
-        Tema newTema2 = new Tema("2", "desc", 11, 8);
-        this.service.addTema(newTema1);
+    void test_add_tema_all_good() {
+        Tema testing_tema = new Tema("1", "desc", 10, 9);
+        Tema testing_tema2 = new Tema("2", "desc", 11, 8);
+        this.service.addTema(testing_tema);
         java.util.Iterator<Tema> students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema1);
+        assertEquals(students.next(), testing_tema);
         this.service.deleteTema("1");
-        this.service.addTema(newTema2);
+        this.service.addTema(testing_tema2);
         students = this.service.getAllTeme().iterator();
-        assertEquals(students.next(), newTema2);
+        assertEquals(students.next(), testing_tema2);
     }
 
 }
