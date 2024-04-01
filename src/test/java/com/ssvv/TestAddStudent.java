@@ -18,7 +18,7 @@ public class TestAddStudent {
     private StudentValidator studentValidator;
     private Service service;
 
-    @BeforeEach
+    @BeforeAll
     void createXML() {
         File xml = new File("fisiere/test_Studenti.xml");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(xml))) {
