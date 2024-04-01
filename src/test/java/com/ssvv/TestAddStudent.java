@@ -241,4 +241,15 @@ public class TestAddStudent {
         }
     }
 
+    @Test
+    public void test_add_student_email_without_arond() {
+        Student testing_student = new Student("123", "Name Test", 3, "emailg");
+        try{
+            this.service.addStudent(testing_student);
+        } catch (ValidationException e){
+            assertEquals(e.toString(), new ValidationException("Email incorect!").toString());
+        }
+    }
+
+
 }
